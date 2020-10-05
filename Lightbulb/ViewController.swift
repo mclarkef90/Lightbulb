@@ -8,12 +8,41 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    @IBOutlet weak var lightBulb: UIImageView!
+    
+    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        lightBulb.backgroundColor = UIColor.blue
+        
+    }
+    
+    
+    @IBAction func colorSelected(_ sender: UISegmentedControl) {
+        
+        switch sender.selectedSegmentIndex {
+        case 0:
+            changeLightbulbColor(to: UIColor.red)
+        case 1:
+            changeLightbulbColor(to: UIColor.yellow)
+        case 2:
+            changeLightbulbColor(to: UIColor.blue)
+        case 3:
+            changeLightbulbColor(to: UIColor.green)
+        default:
+            changeLightbulbColor(to: UIColor.blue)
+    }
+    
+}
+
+    func changeLightbulbColor(to color: UIColor){
+        lightBulb.backgroundColor = color
     }
 
-
 }
+
+
 
